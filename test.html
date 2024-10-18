@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        function fusionnerTableauxTries(arr1, arr2) {
+            let i = 0, j = 0;
+            const resultat = [];
+
+            while (i < arr1.length && j < arr2.length) {
+                if (arr1[i] < arr2[j]) {
+                    resultat.push(arr1[i]);
+                    i++;
+                } else {
+                    resultat.push(arr2[j]);
+                    j++;
+                }
+            }
+
+            // Ajouter les éléments restants
+            return resultat.concat(arr1.slice(i)).concat(arr2.slice(j));
+        }
+
+        // Exemple d'utilisation
+        console.log(fusionnerTableauxTries([1, 3, 5, 4], [2, 4, 6])); // Affiche [1, 2, 3, 4, 5, 6]
+
+
+        function factorielle(n) {
+            if (n === 0) return 1;
+            return n * factorielle(n - 1);
+        }
+
+        // Exemple d'utilisation
+        console.log(factorielle(5)); // Affiche 120
+
+        function trierChaine(str) {
+            return str.split('').sort().join('');
+        }
+
+        // Exemple d'utilisation
+        console.log(trierChaine("javascript")); // Affiche "aacijprstv"
+
+        function compterVoyelles(str) {
+            const voyelles = 'aeiouAEIOU';
+            return str.split('').filter(char => voyelles.includes(char)).length;
+        }
+
+        // Exemple d'utilisation
+        console.log(compterVoyelles("Hello World")); // Affiche 3
+
+        function elementLePlusFrequent(arr) {
+            const frequence = {};
+            let maxFrequence = 0;
+            let element = null;
+
+            arr.forEach(num => {
+                frequence[num] = (frequence[num] || 0) + 1;
+                if (frequence[num] > maxFrequence) {
+                    maxFrequence = frequence[num];
+                    element = num;
+                }
+            });
+
+            return element;
+        }
+
+        // Exemple d'utilisation
+        console.log(elementLePlusFrequent([1, 3, 2, 3, 3, 2, 1])); // Affiche 3
+
+
+        function nombresPairs(arr) {
+            return arr.filter(num => num % 2 === 0);
+        }
+
+        // Exemple d'utilisation
+        console.log(nombresPairs([1, 2, 3, 4, 5, 6])); // Affiche [2, 4, 6]
+
+
+        function inverserChaine(str) {
+            return str.split('').reverse().join('');
+        }
+
+        // Exemple d'utilisation
+        console.log(inverserChaine("hello")); // Affiche "olleh"
+
+
+        function estAnagramme(str1, str2) {
+            const normalize = str => str.toLowerCase().split('').sort().join('');
+            return normalize(str1) === normalize(str2);
+        }
+
+        // Exemple d'utilisation
+        console.log(estAnagramme("listen", "silent")); // Affiche true
+        console.log(estAnagramme("hello", "world"));   // Affiche false
+
+
+        function sommeTableau(arr) {
+            return arr.reduce((acc, curr) => acc + curr, 0);
+        }
+
+        // Exemple d'utilisation
+        console.log(sommeTableau([1, 2, 3, 4])); // Affiche 10
+
+    </script>
+</body>
+
+</html>
